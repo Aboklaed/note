@@ -98,7 +98,7 @@
                     </td>
                 </tr>
                 </table>
-                   <h4>إدخل لتشاهد معلومات حول المدخل أو اسم المدينة لمواقيت الصلاة والطقس.👇</h4>
+                   <h4>إدخل لتشاهد معلومات حول المدخل أو اسم المدينة للمواقيت الصلاة والطقس.👇</h4>
         <input type="text" id="city" placeholder="إدخل وخذ معلومة" oninput="fetchCityInfo()" onkeypress="hideKeyboard(event)">
         <div class="note">
             <table style="width: 100%; table-layout: fixed;">
@@ -272,10 +272,8 @@ function fetchCityImage() {
                 if (imageUrl) {
                     const img = new Image();
                     img.src = imageUrl;
-                    // تعيين الأبعاد المطلوبة للصورة
-                    img.width = 320;
-                    img.height = 300;
-                    
+                    img.style.width = "100%";
+                    img.style.borderRadius = "8px";
                     imageContainer.innerHTML = '';
                     imageContainer.appendChild(img);
                 } else {
@@ -321,6 +319,7 @@ function speakCityInfo() {
 function stopSpeaking() {
     speechSynthesis.cancel();
 }
+                     
     </script>
 </body>
 </html>
