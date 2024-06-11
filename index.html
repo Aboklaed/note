@@ -26,12 +26,16 @@
             border-radius: 8px;
             margin-bottom: 20px;
         }
-        h1 {
+        h3 {
             color: #4CAF50;
         }
+         h4 {
+           color: #cc2b5e;
+         }
         input[type="text"] {
             width: 95%;
             padding: 10px;
+            font-size: 40px;
             margin: 10px 0;
             border: 1px solid #ccc;
             border-radius: 4px;
@@ -79,7 +83,8 @@
 </head>
 <body>
     <div class="container">
-        <h1>معلومات عن المدن</h1>
+        <h3>مواقيت الصلاة للمدن ومعلومات</h3>
+      <h4>ملاحظة إدخل أي اسم بالإنجليزي لتشاهد معلومات وصورة عنه</h4>
         <input type="text" id="city" placeholder="أدخل اسم المدينة" oninput="fetchCityInfo()" onkeypress="hideKeyboard(event)">
         <div class="note">
             <table style="width: 100%; table-layout: fixed;">
