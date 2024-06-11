@@ -76,8 +76,11 @@
             align-items: center; /* لتوسيط عمودياً */
             height: 40px; /* يمكن تغييرها حسب رغبتك */
             color: white; /* يمكن تغييرها حسب رغبتك */
-}
-        }
+              }
+              }
+          .city-image {
+            width: 300px; /* عرض العنصر */
+            height: 200px; /* ارتفاع العنصر */
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
 </head>
@@ -95,18 +98,18 @@
                     </td>
                 </tr>
                 </table>
-                   <h4>إدخل لتشاهد معلومات أو اسم المدينة للمواقيت والطقس. ملاحظة بالانجليزي تظهر صورة👇</h4>
+                   <h4>إدخل لتشاهد معلومات حول المدخل أو اسم المدينة للمواقيت الصلاة والطقس.👇</h4>
         <input type="text" id="city" placeholder="إدخل وخذ معلومة" oninput="fetchCityInfo()" onkeypress="hideKeyboard(event)">
         <div class="note">
             <table style="width: 100%; table-layout: fixed;">
                 <tr>
                     <td colspan="2" style="text-align: right;">
                         <div class="info" id="city-info"></div>
+                        <div class="city-image" id="city-image"></div>
                     </td>
                 </tr>
                 
             </table>
-            <div class="city-image" id="city-image"></div>
             <div class="buttons">
                 <button onclick="shareCityInfo()">📤 مشاركة</button>
                 <button onclick="speakCityInfo()">🔊 قراءة</button>
@@ -254,27 +257,40 @@ function fetchPrayerTimes(city) {
         .catch(error => console.error('Error fetching prayer times:', error));
 }
 
-function fetchCityImage(city) {
-    const apiUrl = `https://en.wikipedia.org/w/api.php?action=query&titles=${city}&prop=pageimages&format=json&pithumbsize=500&origin=*`;
-    fetch(apiUrl)
-        .then(response => response.json())
-        .then(data => {
-            const pages = data.query.pages;
-            const pageId = Object.keys(pages)[0];
-            const imageUrl = pages[pageId].thumbnail ? pages[pageId].thumbnail.source : null;
-            if (imageUrl) {
-                const cityImage = `
-                    <h3></h3>
-                    <img src="${imageUrl}" alt="صورة للمدينة" style="width:100%; border-radius: 8px;">
-                `;
-                document.getElementById("city-image").innerHTML = cityImage;
-            } else {
-                document.getElementById("city-image").innerHTML = "<p>لم يتم العثور على صورة للمدينة.</p>";
-            }
-        })
-        .catch(error => console.error('Error fetching city image:', error));
+function fetchCityImage() {
+    const city = document.getElementById('city').value;
+    if (city.trim() !== "") {
+        const lang = /[\u0600-\u06FF]/.test(city) ? 'ar' : 'en';
+        const apiUrl = `https://${lang}.wikipedia.org/w/api.php?action=query&titles=${encodeURIComponent(city)}&prop=pageimages&format=json&pithumbsize=500&origin=*`;
+        fetch(apiUrl)
+            .then(response => response.json())
+            .then(data => {
+                const pages = data.query.pages;
+                const pageId = Object.keys(pages)[0];
+                const imageUrl = pages[pageId].thumbnail ? pages[pageId].thumbnail.source : null;
+                const imageContainer = document.getElementById('city-image');
+                if (imageUrl) {
+                    const img = new Image();
+                    img.src = imageUrl;
+                    // تعيين الأبعاد المطلوبة للصورة
+                    img.width = 320;
+                    img.height = 300;
+                    
+                    imageContainer.innerHTML = '';
+                    imageContainer.appendChild(img);
+                } else {
+                    imageContainer.innerHTML = 'لم يتم العثور على صورة';
+                }
+            })
+            .catch(error => {
+                console.error('خطأ في جلب صورة المدينة:', error);
+                document.getElementById('city-image').innerHTML = 'حدث خطأ أثناء جلب الصورة';
+            });
+    } else {
+        alert("يرجى إدخال اسم المدينة");
+    }
 }
-
+  
 function hideKeyboard(event) {
     if (event.key === "Enter") {
         document.activeElement.blur();
