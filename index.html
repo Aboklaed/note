@@ -83,9 +83,20 @@
 </head>
 <body>
     <div class="container">
-        <h3>مواقيت الصلاة للمدن ومعلومات</h3>
-      <h4>ملاحظة إدخل أي اسم بالإنجليزي لتشاهد معلومات وصورة عنه</h4>
-        <input type="text" id="city" placeholder="أدخل اسم المدينة" oninput="fetchCityInfo()" onkeypress="hideKeyboard(event)">
+        <h3>مواقيت الصلاة والطقس تلقائي</h3>
+      
+                 <table style="width: 100%; table-layout: fixed;">
+                <tr>
+                    <td style="width: 50%; text-align: right;">
+                        <div class="prayer-times" id="prayer-times"></div>
+                    </td>
+                    <td style="vertical-align: top; width: 50%; text-align: left;">
+                        <div class="weather" id="weather-info"></div>
+                    </td>
+                </tr>
+                </table>
+                   <h4>إدخل بالإنجليزي لتشاهد معلومات وصورة أو اسم المدينة للمواقيت والطقس👇</h4>
+        <input type="text" id="city" placeholder="إدخل وخذ معلومة" oninput="fetchCityInfo()" onkeypress="hideKeyboard(event)">
         <div class="note">
             <table style="width: 100%; table-layout: fixed;">
                 <tr>
@@ -93,14 +104,7 @@
                         <div class="info" id="city-info"></div>
                     </td>
                 </tr>
-                <tr>
-                    <td style="width: 50%; text-align: right;">
-                        <div class="prayer-times" id="prayer-times"></div>
-                    </td>
-                    <td style="width: 50%; text-align: right;">
-                        <div class="weather" id="weather-info"></div>
-                    </td>
-                </tr>
+                
             </table>
             <div class="city-image" id="city-image"></div>
             <div class="buttons">
@@ -206,7 +210,7 @@ function fetchCityDetails(city) {
         .then(response => response.json())
         .then(data => {
             const cityInfo = `
-                <h3>معلومات عن المدينة</h3>
+                <h3>معلومات عن:</h3>
                 <p><a href="https://www.google.com/maps/search/?api=1&query=${city}" target="_blank">${city}</a></p>
                 <p>${data.extract}</p>
             `;
@@ -221,7 +225,7 @@ function fetchWeatherInfo(city) {
         .then(response => response.json())
         .then(data => {
             const weatherInfo = `
-                <h3>أحوال الطقس</h3>
+                <h3></h3>
                 <p>درجة الحرارة: ${data.main.temp}°C</p>
                 <p>الرطوبة: ${data.main.humidity}%</p>
                 <p>الطقس: ${data.weather[0].description}</p>
@@ -238,7 +242,7 @@ function fetchPrayerTimes(city) {
         .then(data => {
             const prayerTimes = data.data.timings;
             const prayerTimesInfo = `
-                <h3>مواقيت الصلاة</h3>
+                <h3></h3>
                 <p>الفجر: ${prayerTimes.Fajr}</p>
                 <p>الظهر: ${prayerTimes.Dhuhr}</p>
                 <p>العصر: ${prayerTimes.Asr}</p>
@@ -260,7 +264,7 @@ function fetchCityImage(city) {
             const imageUrl = pages[pageId].thumbnail ? pages[pageId].thumbnail.source : null;
             if (imageUrl) {
                 const cityImage = `
-                    <h3>صورة للمدينة</h3>
+                    <h3></h3>
                     <img src="${imageUrl}" alt="صورة للمدينة" style="width:100%; border-radius: 8px;">
                 `;
                 document.getElementById("city-image").innerHTML = cityImage;
@@ -282,7 +286,7 @@ function shareCityInfo() {
     const weatherInfo = document.getElementById("weather-info").innerText;
     const prayerTimes = document.getElementById("prayer-times").innerText;
     const shareData = {
-        title: 'معلومات المدينة',
+        title: 'معلومات',
         text: `${cityInfo}\n${weatherInfo}\n${prayerTimes}`,
         url: window.location.href
     };
