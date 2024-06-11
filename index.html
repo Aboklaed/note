@@ -281,30 +281,30 @@ function hideKeyboard(event) {
     }
 }
 
-function<! ارسموا html>shareCityInfo() {
-<HTML لانغ = "AR">"AR">const cityInfo = document.getElementById("city-info").innerText;
-<الرأس>.const weatherInfo = document.getElementById("weather-info").innerText;
- <ميتا charset="UTF-8"> "UTF-8"> const prayerTimes = document.getElementById("prayer-times").innerText;
- <meta name="viewport" content="width=عرض الجهاز، المقياس الأولي=1.0"> "viewport" content="width=عرض الجهاز، المقياس الأولي=1.0"> const shareData = {
- <العنوان>مواقيت الصلاة</title> /title> title: 'معلومات',
- <أسلوب>. `${cityInfo}\n${weatherInfo}\n${prayerTimes}`,
- الجسم { location.href
- الخط الأسرة: 'القاهرة'، دون شريف. 'القاهرة'، دون شريف. };
- الخلفية اللون: #f0f0f00; share(shareData).catch(console.error);
+function shareCityInfo() {
+    const cityInfo = document.getElementById("city-info").innerText;
+    const weatherInfo = document.getElementById("weather-info").innerText;
+    const prayerTimes = document.getElementById("prayer-times").innerText;
+    const shareData = {
+        title: 'معلومات',
+        text: `${cityInfo}\n${weatherInfo}\n${prayerTimes}`,
+        url: window.location.href
+    };
+    navigator.share(shareData).catch(console.error);
 }
 
-function محاذاة النص: المركز؛ speakCityInfo() {
- الهامش: 0؛ 0؛ const cityInfo = document.getElementById("city-info").innerText;
- الحشو: 0; 0; const weatherInfo = document.getElementById("weather-info").innerText;
- تبرير المحتوى: مركز؛ const prayerTimes = document.getElementById("prayer-times").innerText;
- محاذاة البنود: مركز; const utterance = new SpeechSynthesisUtterance(`${cityInfo}\n${weatherInfo}\n${prayerTimes}`);
- الارتفاع: 150vh; lang = 'ar-SA';
- فليكس الاتجاه: العمود؛ speak(utterance);
+function speakCityInfo() {
+    const cityInfo = document.getElementById("city-info").innerText;
+    const weatherInfo = document.getElementById("weather-info").innerText;
+    const prayerTimes = document.getElementById("prayer-times").innerText;
+    const utterance = new SpeechSynthesisUtterance(`${cityInfo}\n${weatherInfo}\n${prayerTimes}`);
+    utterance.lang = 'ar-SA';
+    speechSynthesis.speak(utterance);
 }
 
-function أقصى عرض: 600px. stopSpeaking() {
- الحشو: 20px. cancel();
+function stopSpeaking() {
+    speechSynthesis.cancel();
 }
- مربع الظل: 0 0 10px RGBA (0، 0، 0، 0.1) ؛ 0 0 10px RGBA (0، 0، 0، 0.1) ؛ </script>
-</ دائرة نصف قطرها الحدود: 8px؛ >
-</ الهامش السفلي: 20px؛ >
+    </script>
+</body>
+</html>
