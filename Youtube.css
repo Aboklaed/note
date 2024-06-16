@@ -66,125 +66,55 @@ body, html {
 }
 
 /* قسم الفلاتر */
-.filters {
-  margin: 20px 0;
-  padding: 10px;
-  background-color: #fff;
-  border-radius: 5px;
-  width: 90%;
-  max-width: 1200px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-/* إعدادات الفيديو */
-/* إعدادات الفيديو */
+./* إعدادات الفيديو */
 .video-item {
-  display: flex;
-  align-items: center;
-  margin: 10px 0;
-  padding: 10px;
-  background-color: #fff;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
-}
-
-.video-thumbnail {
-  width: 120px;
-  height: 90px;
-  border-radius: 5px;
-  margin-right: 15px;
-}
-
-.video-details {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-}
-
-.video-title {
-  font-weight: bold;
-  color: #343a40;
-  margin: 0;
-}
-
-.video-description {
-  color: #6c757d;
-  font-size: 0.9em;
-  margin: 5px 0;
-}
-
-.video-channel {
-  color: #6c757d;
-  font-size: 0.85em;
-}
-
-.download-button {
-  background-color: #ff5722;
-  color: #fff;
-  border: none;
-  padding: 8px 12px;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 0.9em;
-  margin-top: 10px;
-}
-
-.download-button:hover {
-  background-color: #e64a19;
-}
-/* إعدادات الفيديو */
-.video-item {
-  display: flex;
-  align-items: flex-start;
-  margin: 10px 0;
+  align-items: center;
+  margin: 20px;
   padding: 10px;
   background-color: #fff;
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 80%; /* لجعل العنصر الفيديو يشغل نسبة مئوية من العرض */
 }
 
 .video-frame {
-  width: 120px;
-  height: 90px;
-  margin-right: 15px;
+  width: 100%; /* يشغل العرض الكامل للعنصر الأب */
+  height: 56.25%; /* نسبة عرض إلى ارتفاع 16:9 */
+  margin-bottom: 15px;
   border-radius: 5px;
 }
 
 .video-details {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  flex-grow: 1;
+  align-items: center;
+  text-align: center;
+  width: 100%;
 }
 
 .video-title {
   font-weight: bold;
   color: #343a40;
-  margin: 0 0 5px;
-}
-
-.channel-icon {
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  margin-right: 10px;
+  font-size: 14px;
+  
 }
 
 .channel-name {
   color: #6c757d;
-  font-size: 0.9em;
-  margin: 5px 0;
+  font-size: 1em;
 }
 
 .download-button {
   background-color: #ff5722;
+  width: 100%;
   color: #fff;
   border: none;
-  padding: 8px 12px;
+  padding: 10px 15px;
   border-radius: 4px;
   cursor: pointer;
-  font-size: 0.9em;
-  margin-top: 10px;
+  font-size: 1em;
 }
 
 .download-button:hover {
