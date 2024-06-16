@@ -1,0 +1,220 @@
+/* ضبط الهوامش والعرض الافتراضي */
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* شريط التنقل */
+.navbar {
+  width: 100%;
+  background-color: #343a40;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* مربع البحث */
+.search-box {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  padding: 5px;
+  border-radius: 5px;
+  max-width: 600px;
+  width: 100%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.search-box label {
+  margin-right: 10px;
+  color: #343a40;
+}
+
+.search-bar {
+  flex-grow: 1;
+  padding: 10px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  min-width: 0; /* لتحسين السلوك في الأحجام الصغيرة */
+}
+
+.search-btn {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-btn:hover {
+  background-color: #0056b3;
+}
+
+/* قسم الفلاتر */
+.filters {
+  margin: 20px 0;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 5px;
+  width: 90%;
+  max-width: 1200px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+/* إعدادات الفيديو */
+/* إعدادات الفيديو */
+.video-item {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.video-thumbnail {
+  width: 120px;
+  height: 90px;
+  border-radius: 5px;
+  margin-right: 15px;
+}
+
+.video-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.video-title {
+  font-weight: bold;
+  color: #343a40;
+  margin: 0;
+}
+
+.video-description {
+  color: #6c757d;
+  font-size: 0.9em;
+  margin: 5px 0;
+}
+
+.video-channel {
+  color: #6c757d;
+  font-size: 0.85em;
+}
+
+.download-button {
+  background-color: #ff5722;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9em;
+  margin-top: 10px;
+}
+
+.download-button:hover {
+  background-color: #e64a19;
+}
+/* إعدادات الفيديو */
+.video-item {
+  display: flex;
+  align-items: flex-start;
+  margin: 10px 0;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.video-frame {
+  width: 120px;
+  height: 90px;
+  margin-right: 15px;
+  border-radius: 5px;
+}
+
+.video-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex-grow: 1;
+}
+
+.video-title {
+  font-weight: bold;
+  color: #343a40;
+  margin: 0 0 5px;
+}
+
+.channel-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.channel-name {
+  color: #6c757d;
+  font-size: 0.9em;
+  margin: 5px 0;
+}
+
+.download-button {
+  background-color: #ff5722;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9em;
+  margin-top: 10px;
+}
+
+.download-button:hover {
+  background-color: #e64a19;
+}
+
+header {
+          display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 10vh;
+            background-color: #f0f0f0; /* لون خلفية الصفحة */
+ .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0; /* لون خلفية الصفحة */
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .note {
+            background-color: #fff; /* لون خلفية المذكرة */
+            padding: 20px;
+            border: 2px solid #ddd; /* حدود خفيفة */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* ظل الصندوق */
+            text-align: center; /* توسيط النص */
+            font-size: 1.5rem; /* حجم الخط */
+            line-height: 1.6; /* ارتفاع السطر */
+            margin: 0 10px; /* هامش حول النص */
+            display: inline-block; /* عرض النوت كمربع مستقل */
+            white-space: nowrap; /* عدم السماح بالانقسام إلى أسطر جديدة */
+        }
