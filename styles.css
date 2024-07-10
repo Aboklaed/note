@@ -1,0 +1,102 @@
+body {
+      font-family: Arial, sans-serif;
+      direction: rtl; /* لتنظيم الكتابة من اليمين إلى اليسار */
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center; /* توسيط النص */
+      border: 2px solid #007bff; /* إطار بسماكة 2 بيكسل ولون أزرق */
+      padding: 10px; /* هامش داخلي للنص داخل الإطار */
+      border-radius: 8px; /* حواف مدورة */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* ظلال شدو */
+      font-family: Arial, sans-serif; /* نوع الخط */
+      color: #007bff; /* لون النص */
+    }
+    span {
+      display: block;
+      font-size: 18px;
+      margin-top: 10px;
+      font-weight: bold;
+      color: #000; /* لون النص الأسود */
+    }
+    .search-box {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    .search-bar {
+      flex: 1; /* يمتد الحقل ليأخذ المساحة المتبقية */
+      margin-right: 10px; /* إضافة مسافة يمينية بين حقل النص والزر */
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .search-btn {
+      padding: 10px 15px;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: transparent; /* زر شفاف بدون ألوان */
+      color: #007bff; /* لون النص */
+      border: none; /* لا يوجد إطار */
+      border: 1px solid #007bff; /* إضافة إطار بسماكة 1 بيكسل ولون أزرق */
+      border-radius: 4px; /* إضافة حواف مدورة */
+    }
+    .search-btn:hover {
+      color: #0056b3; /* تغيير لون النص عند تحويل المؤشر */
+      background-color: #f0f0f0; /* تغيير لون الخلفية عند التحويل */
+    }
+    #videosResults {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+    }
+    .video-item {
+      border: 1px solid #ccc;
+      padding: 10px;
+      border-radius: 4px;
+      cursor: pointer; /* تجعل العنصر يستجيب للنقر */
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* ظلال شدو بسيطة */
+    }
+    .video-thumbnail {
+      width: 100%;
+      height: auto;
+    }
+    .video-title {
+      margin: 10px 0;
+      font-weight: bold;
+      cursor: pointer;
+      color: black;
+      text-decoration: none;
+    }
+    .video-title:hover {
+      text-decoration: underline;
+    }
+    .channel-name {
+      color: #888;
+    }
+    .download-button {
+      display: block;
+      padding: 8px 16px;
+      margin-top: 10px;
+      background-color: #28a745;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      text-decoration: none;
+      text-align: center;
+      cursor: pointer;
+    }
+    .download-button:hover {
+      background-color: #218838;
+    }
+    #player-container {
+      margin-bottom: 20px;
+    }
+    #player {
+      width: 100%; /* جعل المشغل يمتد على عرض الصفحة */
+    }
