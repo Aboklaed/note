@@ -5,29 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>باحث اليوتيوب</title>
   <link rel="stylesheet" href="styles.css">
-  <style>
-    .tabs {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-bottom: 10px;
-    }
-
-    .tab {
-      padding: 10px 20px;
-      cursor: pointer;
-      background-color: #f1f1f1;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      margin: 5px;
-      transition: background-color 0.3s;
-      flex: 1 1 45%; /* تجعل الأزرار تستغل 45% من العرض وتنتقل للسطر التالي إذا لزم الأمر */
-    }
-
-    .tab:hover, .tab.active {
-      background-color: #ddd;
-    }
-  </style>
 </head>
 <body>
   <div class="container">
@@ -38,7 +15,7 @@
       <div class="tab" onclick="setCategory('featured')">المحتوى المميز</div>
       <div class="tab" onclick="setCategory('nature')">الطبيعة</div>
       <div class="tab" onclick="setCategory('travel')">السياحة</div>
-      <div class="tab" onclick="setCategory('live')">البث المباشر</div>
+      <div class="tab" onclick="setCategory('live cameras')">البث المباشر</div>
       <div class="tab" onclick="setCategory('news')">الأخبار</div>
       <div class="tab" onclick="setCategory('movies')">أفلام</div>
     </div>
@@ -62,6 +39,7 @@
     // تعريف متغير عالمي للمشغل
     let player;
     let currentCategory = '';
+    let wakeLock = null;
 
     // دالة لتحديد الفئة المختارة وتحديث نتائج البحث
     function setCategory(category) {
@@ -89,6 +67,7 @@
       }
       // الانتقال إلى أعلى الصفحة لرؤية الفيديو
       window.scrollTo({ top: 0, behavior: 'smooth' });
+      requestWakeLock(); // طلب إبقاء الشاشة مضاءة
     }
 
     // دالة تشغيل الفيديو عندما يكون المشغل جاهزًا
@@ -113,7 +92,7 @@
             'featured': 'nature documentaries',
             'nature': 'nature',
             'travel': 'travel Europe',
-            'live': 'Arabic news live',
+            'live cameras': 'Live cameras',
             'news': 'Arabic news',
             'movies': 'Foreign movies'
           };
@@ -198,6 +177,29 @@
       }
     });
 
+    // دالة لطلب إبقاء الشاشة مضاءة
+    async function requestWakeLock() {
+      try {
+        wakeLock = await navigator.wakeLock.request('screen');
+        console.log('Wake Lock is active.');
+      } catch (err) {
+        console.error('Failed to acquire wake lock:', err);
+      }
+    }
+
+    // دالة لإطلاق إبقاء الشاشة مضاءة
+    function releaseWakeLock() {
+      if (wakeLock) {
+        wakeLock.release()
+          .then(() => {
+            console.log('Wake Lock released.');
+            wakeLock = null;
+          });
+      }
+    }
+
+    // إطلاق إبقاء الشاشة مضاءة عند إيقاف الفيديو
+    window.addEventListener('beforeunload', releaseWakeLock);
   </script>
 </body>
 </html>
