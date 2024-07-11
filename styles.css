@@ -100,3 +100,31 @@ body {
     #player {
       width: 100%; /* جعل المشغل يمتد على عرض الصفحة */
     }
+.tabs {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 10px;
+    }
+
+    .tab {
+      padding: 10px 20px;
+      cursor: pointer;
+      background-color: #f1f1f1;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin: 5px;
+      transition: background-color 0.3s;
+      flex: 1 1 30%; /* يجعل كل زر يشغل 30% من العرض المتاح */
+      box-sizing: border-box; /* ensures padding and borders are included in the element's total width and height */
+    }
+
+    .tab:hover, .tab.active {
+      background-color: #ddd;
+    }
+
+    @media (max-width: 600px) {
+      .tab {
+        flex: 1 1 45%; /* جعل الأزرار تشغل 45% من العرض المتاح على الشاشات الصغيرة */
+      }
+    }
