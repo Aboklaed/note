@@ -1,20 +1,27 @@
-body {
-      font-family: Arial, sans-serif;
-      direction: rtl; /* لتنظيم الكتابة من اليمين إلى اليسار */
-    }
+@import url('https://fonts.googleapis.com/css2?family=Almarai:wght@400;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Rakkas:wght@400;700&display=swap');
+        /* قم بإضافة الروابط الأخرى للخطوط هنا */
+
+        body {
+            font-family: 'Almarai', sans-serif;
+            margin: 20px;
+            direction: rtl;
+        }
+
     .container {
       max-width: 800px;
       margin: 0 auto;
       padding: 20px;
     }
     h1 {
+      font-family: 'Almarai', sans-serif;
       text-align: center; /* توسيط النص */
-      border: 2px solid #007bff; /* إطار بسماكة 2 بيكسل ولون أزرق */
+      border: 2px solid #f0f0f0; /* إطار بسماكة 2 بيكسل ولون أزرق */
       padding: 10px; /* هامش داخلي للنص داخل الإطار */
       border-radius: 8px; /* حواف مدورة */
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* ظلال شدو */
-      font-family: Arial, sans-serif; /* نوع الخط */
-      color: #007bff; /* لون النص */
+      box-shadow: 0 4px 8px rgba(2, 2, 2, 2.1); /* ظلال شدو */
+      color: #0077b6; /* لون النص */
+      font-size: 25px;
     }
     span {
       display: block;
@@ -24,22 +31,27 @@ body {
       color: #000; /* لون النص الأسود */
     }
     .search-box {
+      justify-content: center;
       display: flex;
       align-items: center;
       margin-bottom: 20px;
     }
     .search-bar {
+      font-family: 'Almarai', sans-serif;
+      background-color: #f0f0f0;
       flex: 1; /* يمتد الحقل ليأخذ المساحة المتبقية */
-      margin-right: 10px; /* إضافة مسافة يمينية بين حقل النص والزر */
+      margin: 1px; /* إضافة مسافة يمينية بين حقل النص والزر */
       padding: 10px;
-      font-size: 16px;
-      border: 1px solid #ccc;
+      font-size: 14px;
+      box-shadow: 0 4px 8px rgba(2, 2, 2, 2.1); /* ظلال شدو */
+      border: 2px solid #ccc;
       border-radius: 4px;
     }
     .search-btn {
-      padding: 10px 15px;
+      padding: 10px 20px;
       font-size: 16px;
       cursor: pointer;
+      box-shadow: 0 4px 8px rgba(2, 2, 2, 2.1); /* ظلال شدو */
       background-color: transparent; /* زر شفاف بدون ألوان */
       color: #007bff; /* لون النص */
       border: none; /* لا يوجد إطار */
@@ -100,31 +112,49 @@ body {
     #player {
       width: 100%; /* جعل المشغل يمتد على عرض الصفحة */
     }
+
 .tabs {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-bottom: 10px;
-    }
+  display: flex; /* عرض الأزرار بجانب بعضها البعض */
+  justify-content: center; /* محاذاة الأزرار في الوسط */
+  flex-wrap: nowrap; /* عدم التفاف الأزرار */
+  margin: 20px 0; /* مسافة فوق وتحت التبويبات */
+}
 
-    .tab {
-      padding: 10px 20px;
-      cursor: pointer;
-      background-color: #f1f1f1;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      margin: 5px;
-      transition: background-color 0.3s;
-      flex: 1 1 30%; /* يجعل كل زر يشغل 30% من العرض المتاح */
-      box-sizing: border-box; /* ensures padding and borders are included in the element's total width and height */
-    }
+.tabs {
+  display: flex; /* عرض الأزرار بجانب بعضها البعض */
+  justify-content: center; /* محاذاة الأزرار في الوسط */
+  flex-wrap: wrap; /* السماح بتفاف الأزرار عند الحاجة */
+  gap: 6px; /* مسافة بين الأزرار */
+  padding: 5px; /* إضافة مسافة داخلية حول مجموعة الأزرار */
+  border: 1px solid #ccc; /* إطار خارجي حول مجموعة الأزرار */
+  box-shadow: 0 4px 8px rgba(2, 2, 2, 2.1); /* إضافة ظل */
+  border-radius: 5px; /* حواف دائرية لمجموعة الأزرار */
+}
 
-    .tab:hover, .tab.active {
-      background-color: #ddd;
-    }
+.tab {
+  padding: 5px 8px; /* مسافة داخلية للأزرار */
+  cursor: pointer; /* تغيير شكل المؤشر عند التحويم */
+  border: none; /* إزالة حدود الأزرار الفردية */
+  background-color: #f0f0f0; /* لون خلفية للأزرار */
+  font-size: 16px; /* حجم خط أصغر */
+  transition: background-color 0.3s, color 0.3s; /* تأثيرات انتقال للألوان */
+  border-radius: 5px; /* حواف دائرية للأزرار */
+}
 
-    @media (max-width: 600px) {
-      .tab {
-        flex: 1 1 45%; /* جعل الأزرار تشغل 45% من العرض المتاح على الشاشات الصغيرة */
-      }
-    }
+.tab.active,
+.tab:hover {
+  background-color: #007bff; /* لون الخلفية عند الفعالية أو التحويم */
+  color: #fff; /* لون النص عند الفعالية أو التحويم */
+}
+
+#developer {
+  font-size: 0.3em;
+  display: none; /* يعرض العنصر في سطر جديد */
+  text-align: center; /* يجعل النص متمركزًا أفقياً */
+  margin-top: 5px; /* يضيف مسافة بادئة من الأعلى */
+}
+
+.emoji-container img {
+    width: 100%; /* يجعل الصورة تتناسب مع حجم الحاوية */
+    height: 100%; /* يجعل الصورة تتناسب مع حجم الحاوية */
+}
