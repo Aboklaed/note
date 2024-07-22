@@ -5,31 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>باحث اليوتيوب</title>
   <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rakkas:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="container">
-    <h1>باحث اليوتيوب<span>برمجة حسين العرياني</span></h1>
-
-    <!-- التبويبات -->
-    <div class="tabs">
-      <div class="tab" onclick="setCategory('featured')">المحتوى المميز</div>
-      <div class="tab" onclick="setCategory('nature')">الطبيعة</div>
-      <div class="tab" onclick="setCategory('travel')">السياحة</div>
-      <div class="tab" onclick="setCategory('live cameras')">البث المباشر</div>
-      <div class="tab" onclick="setCategory('news')">الأخبار</div>
-      <div class="tab" onclick="setCategory('movies')">أفلام</div>
+   <div class="emoji-container">
+        <img src="YouTube.png" alt="YouTube">
     </div>
-
+  <div class="tabs">
+  <div class="tab" onclick="setCategory('featured')">مميز</div>
+  <div class="tab" onclick="setCategory('travel')">السياحة</div>
+  <div class="tab" onclick="setCategory('news')">الأخبار</div>
+  <div class="tab" onclick="setCategory('nature')">الطبيعة</div>
+  <div class="tab" onclick="setCategory('live cameras')">مباشر</div>
+</div>
     <div class="search-box">
-      <input type="text" class="search-bar" id="inputBox" placeholder="ابحث عن مقاطع الفيديو على YouTube">
+      <input type="text" class="search-bar" id="inputBox" placeholder="ابحث في YouTube">
       <button class="search-btn" onclick="search()">🔎</button>
     </div>
     <div id="player-container">
       <div id="player"></div>
     </div>
     <div id="videosResults"></div>
-  </div>
-
   <!-- تضمين مكتبة YouTube Player API -->
   <script src="https://www.youtube.com/iframe_api"></script>
 
@@ -94,7 +91,6 @@
             'travel': 'travel Europe',
             'live cameras': 'Live cameras',
             'news': 'Arabic news',
-            'movies': 'Foreign movies'
           };
           query = categoryQueries[currentCategory] + (input ? ' ' + input : '');
         }
