@@ -196,6 +196,26 @@
 
     // إطلاق إبقاء الشاشة مضاءة عند إيقاف الفيديو
     window.addEventListener('beforeunload', releaseWakeLock);
+    function playVideo(videoId) {
+  if (player) {
+    player.loadVideoById(videoId);
+  } else {
+    player = new YT.Player('player', {
+      height: '180', // انخفاض ارتفاع المشغل ليكون أصغر
+      width: '320', // انخفاض عرض المشغل ليكون أصغر
+      videoId: videoId,
+      playerVars: {
+        'rel': 0 // إضافة هذه المعلمة لمنع ظهور المقاطع المصغرة
+      },
+      events: {
+        'onReady': onPlayerReady
+      }
+    });
+  }
+  // الانتقال إلى أعلى الصفحة لرؤية الفيديو
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  requestWakeLock(); // طلب إبقاء الشاشة مضاءة
+    }
   </script>
 </body>
 </html>
